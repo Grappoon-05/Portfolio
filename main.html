@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ingénierie & Robotique</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="copy_fichiers/css2.css">
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="copy_fichiers/w3.css">
+</head>
+<body>
+
+    <!-- Formes de fond animées pour le style "fun" et moderne -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <div class="page-content">
+
+    <header class="main-header">
+        <h1>Mon Portfolio</h1>
+        <h4> Première année de Licence Professionnelle Robotique et Intelligence Artificielle</h4>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="image.jpg" alt="Ma Photo">
+            </div>
+            <div class="about-text">
+                <h3>Qui suis-je ?</h3>
+                <h4>DARTY Yanis</h4>
+                <p>Étudiant en 1ère année de Licence Professionnelle Robotique et Intelligence Artificielle à l'IUT Béziers, passionné de robotique et d'IA. Doté d'une capacité à m'adapter au travail seul et en équipe</p>
+                <br>
+                <h3>Formation</h3>
+                <ul class="timeline">
+                    <li class="timeline-item">
+                        <span class="date">2025 - À présent</span>
+                        <p>Licence Professionnelle Robotique &amp; Intelligence Artificielle - IUT Béziers</p>
+                    </li>
+                    <li class="timeline-item">
+                        <span class="date">2024 - 2025</span>
+                        <p>Prépa-Intégrée, spécialité physique - CY Tech Pau</p>
+                    </li>
+                    <li class="timeline-item">
+                        <span class="date">2024</span>
+                        <p>Baccalauréat Générale, spécialités Mathématiques et Physique-Chimie, option Latin, Grec, Mathématiques Expertes - Lycée Fragonard l'Isle-Adam</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <nav class="categories-container" id="main-nav">
+        <button class="category-btn" data-target="UE1">
+            <span class="btn-icon">🚀</span>
+            <h2>Concevoir</h2>
+            <span class="btn-subtitle">UE-1</span>
+            <div class="btn-border"></div>
+        </button>
+        <button class="category-btn" data-target="UE2">
+            <span class="btn-icon">⚙️</span>
+            <h2>Déployer</h2>
+            <span class="btn-subtitle">UE-2</span>
+            <div class="btn-border"></div>
+        </button>
+        <button class="category-btn" data-target="UE3">
+            <span class="btn-icon">🛠️</span>
+            <h2>Maintenir</h2>
+            <span class="btn-subtitle">UE-3</span>
+            <div class="btn-border"></div>
+        </button>
+        <button class="category-btn" data-target="UE4">
+            <span class="btn-icon">🛡️</span>
+            <h2>Sécuriser</h2>
+            <span class="btn-subtitle">UE-4</span>
+            <div class="btn-border"></div>
+        </button>
+    </nav>
+
+    </div><!-- /#page-content -->
+
+    <main class="content-container">
+        
+        <section id="UE1" class="content-section">
+            <button class="back-btn" data-back="main-nav">← Retour à l'accueil</button>
+            <h2>🚀 UE-01 : Concevoir</h2>
+            <nav class="categories-container sub-nav">
+                <button class="category-btn" data-target="COURS_EU1">
+                    <span class="btn-icon">📚</span>
+                    <h2>Cours</h2>
+                </button>
+                <button class="category-btn" data-target="SAÉ_EU1">
+                    <span class="btn-icon">🎯</span>
+                    <h2>SAÉ</h2>
+                </button>
+                <button class="category-btn" data-target="PROJETS_UE1">
+                    <span class="btn-icon">💡</span>
+                    <h2>Projets</h2>
+                </button>
+            </nav>
+            <div class="content-body">
+                <p>Analyse cinématique, ROS, contrôle commande et intégration de capteurs.</p>
+            </div>
+        </section>
+
+        <section id="UE2" class="content-section">
+            <button class="back-btn" data-back="main-nav">← Retour à l'accueil</button>
+            <h2>⚙️ UE-02 : Déployer</h2>
+            <nav class="categories-container sub-nav">
+                <button class="category-btn" data-target="COURS_EU2">
+                    <span class="btn-icon">📚</span>
+                    <h2>Cours</h2>
+                </button>
+                <button class="category-btn" data-target="SAÉ_EU2">
+                    <span class="btn-icon">🎯</span>
+                    <h2>SAÉ</h2>
+                </button>
+                <button class="category-btn" data-target="PROJETS_UE2">
+                    <span class="btn-icon">💡</span>
+                    <h2>Projets</h2>
+                </button>
+            </nav>
+            <div class="content-body">
+                <p>Machine Learning, réseaux de neurones, K-Nearest Neighbors, vision par ordinateur.</p>
+            </div>
+        </section>
+
+        <section id="UE3" class="content-section">
+            <button class="back-btn" data-back="main-nav">← Retour à l'accueil</button>
+            <h2>🛠️ UE-03 : Maintenir et gérer</h2>
+            <nav class="categories-container sub-nav">
+                <button class="category-btn" data-target="COURS_EU3">
+                    <span class="btn-icon">📚</span>
+                    <h2>Cours</h2>
+                </button>
+                <button class="category-btn" data-target="SAÉ_EU3">
+                    <span class="btn-icon">🎯</span>
+                    <h2>SAÉ</h2>
+                </button>
+                <button class="category-btn" data-target="PROJETS_UE3">
+                    <span class="btn-icon">💡</span>
+                    <h2>Projets</h2>
+                </button>
+            </nav>
+            <div class="content-body">
+                <p>Traitement du signal, codage en ligne, modulations, analyse de spectre.</p>
+            </div>
+        </section>
+
+        <section id="UE4" class="content-section">
+            <button class="back-btn" data-back="main-nav">← Retour à l'accueil</button>
+            <h2>🛡️ UE-04 : Sécuriser</h2>
+            <nav class="categories-container sub-nav">
+                <button class="category-btn" data-target="COURS_EU4">
+                    <span class="btn-icon">📚</span>
+                    <h2>Cours</h2>
+                </button>
+                <button class="category-btn" data-target="SAÉ_EU4">
+                    <span class="btn-icon">🎯</span>
+                    <h2>SAÉ</h2>
+                </button>
+                <button class="category-btn" data-target="PROJETS_UE4">
+                    <span class="btn-icon">💡</span>
+                    <h2>Projets</h2>
+                </button>
+            </nav>
+            <div class="content-body">
+                <p>Réalisations pratiques, code source et rapports de travaux pratiques.</p>
+            </div>
+        </section>
+
+        <section id="COURS_EU1" class="content-section">
+            <button class="back-btn" data-back="UE1">← Retour à l'UE</button>
+            <h2>📚 Cours UE-01</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Contenu des cours...</div>
+                <p>
+                    Cours dans l'UE : <br>
+                    <br>
+                    - R1.01 - Anglais et Communication <br>
+                    - R1.03 - Maths pour l'IT <br>
+                    - R1.07 - Programmation, Algorithmique <br>
+                    - R1.15 - Métrologie <br>
+                    - R1.17 - Introduction à la régulation et aux asservissements <br>
+                    - R1.19 - Automatismes - Logique combinatoire et séquentielle <br>
+                    - R1.21 - Introduction et caractérisation des robots <br>
+                    - R1.22 - Bases de la mécanique pour la robotique <br>
+                    <br>
+                    - R2.01 - Anglais et communication <br>
+                    - R2.04 - Maths pour l'OT <br>
+                    - R2.05 - Physique: Domaine Fréquentiel et filtrage <br>
+                    - R2.06 - Puissances et schéma de liaison à la terre <br>
+                    - R2.07 - Programmation Orientée Objet <br>
+                    - R2.15 - Détecteurs TOR <br>
+                    - R2.17 - Programmation des régulateurs <br>
+                    - R2.19 - Logique Séquentielle
+                </p>
+            </div>
+        </section>
+
+        <section id="SAÉ_EU1" class="content-section">
+            <button class="back-btn" data-back="UE1">← Retour à l'UE</button>
+            <h2>🎯 SAÉ UE-01</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Détails des SAÉ...</div>
+                <p>
+                    SAÉ dans l'UE : <br>
+                    <br>
+                    - SAE1.3 - Conception d'une application d'automatisation ou de robotique <br>
+                    <br>
+                    - SAE 2.1 - Conception et déploiement d'une solution d'automatisme <br>
+                    - SAE 2.2 - Mise en service et déploiement d'une solution de robotique <br>
+                    - SAE 2.4 - Amélioration de la production <br>
+                    - SAE2.5 - Portfolio
+                </p>
+            </div>
+        </section>
+
+        <section id="PROJETS_UE1" class="content-section">
+            <button class="back-btn" data-back="UE1">← Retour à l'UE</button>
+            <h2>💡 Projets UE-01</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Portfolio des projets...</div>
+                <p>
+                    - Club Robotique <br>
+                    - Serveur NAS / Domotique <br>
+                    - LEDs Connectées <br>
+                    - Capteur de Température, Humidité et CO2 <br>
+                    - Robot BB-8 <br>
+                    - Adaptateur Jack vers Bluetooth
+                </p>
+            </div>
+        </section>
+
+        <section id="COURS_EU2" class="content-section">
+            <button class="back-btn" data-back="UE2">← Retour à l'UE</button>
+            <h2>📚 Cours UE-02</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Contenu des cours...</div>
+                <p>
+                    Cours dans l'UE : <br>
+                    <br>
+                    - R1.01 - Anglais et Communication <br>
+                    - R1.03 - Maths pour l'IT <br>
+                    - R1.05 - Physique Appliquée <br>
+                    - R1.07 - Programmation, Algorithmique <br>
+                    - R1.09 - Initiation aux réseaux <br>
+                    - R1.13 - Initiation à l'Intelligence Artificielle <br>
+                    - R1.15 - Métrologie <br>
+                    - R1.17 - Introduction à la régulation et aux asservissements <br>
+                    - R1.20 - Automatismes, Structure et raccordement des API <br>
+                    <br>
+                    - R2.01 - Anglais et communication <br>
+                    - R2.04 - Maths pour l'OT <br>
+                    - R2.05 - Physique: Domaine Fréquentiel et filtrage <br>
+                    - R2.06 - Puissances et schéma de liaison à la terre <br>
+                    - R2.07 - Programmation Orientée Objet <br>
+                    - R2.09 - Bases des services réseaux <br>
+                    - R2.10 - Réseaux Télécommunications <br>
+                    - R2.18 - Commande en BF des procédés <br>
+                    - R2.19 - Logique Séquentielle <br>
+                    - R2.21 - Approche pratique de la robotique industrielle <br>
+                    - R2.22 - Robotique: Vision industrielle
+                </p>
+            </div>
+        </section>
+
+        <section id="SAÉ_EU2" class="content-section">
+            <button class="back-btn" data-back="UE2">← Retour à l'UE</button>
+            <h2>🎯 SAÉ UE-02</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Détails des SAÉ...</div>
+                <p>
+                    SAÉ dans l'UE : <br>
+                    <br>
+                    - SAE1.2 - Apprendre à câbler les capteurs et actionneurs <br>
+                    <br>
+                    - SAE 2.1 - Conception et déploiement d'une solution d'automatisme <br>
+                    - SAE 2.2 - Mise en service et déploiement d'une solution de robotique <br>
+                    - SAE 2.4 - Amélioration de la production <br>
+                    - SAE2.5 - Portfolio
+                </p>
+            </div>
+        </section>
+
+        <section id="PROJETS_UE2" class="content-section">
+            <button class="back-btn" data-back="UE2">← Retour à l'UE</button>
+            <h2>💡 Projets UE-02</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Portfolio des projets...</div>
+                <p>
+                    - Club Robotique <br>
+                    - Serveur NAS / Domotique <br>
+                    - LEDs Connectées <br>
+                    - Capteur de Température, Humidité et CO2 <br>
+                    - Simulation de Système d'Évolution Génétique
+                </p>
+            </div>
+        </section>
+
+        <section id="COURS_EU3" class="content-section">
+            <button class="back-btn" data-back="UE3">← Retour à l'UE</button>
+            <h2>📚 Cours UE-03</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Contenu des cours...</div>
+                <p>
+                    Cours dans l'UE : <br>
+                    <br>
+                    - R1.01 - Anglais et Communication <br>
+                    - R1.03 - Maths pour l'IT <br>
+                    - R1.05 - Physique Appliquée <br>
+                    - R1.07 - Programmation, Algorithmique <br>
+                    - R1.13 - Initiation à l'Intelligence Artificielle <br>
+                    - R1.15 - Métrologie <br>
+                    - R1.20 - Automatismes, Structure et raccordement des API <br>
+                    <br>
+                    - R2.01 - Anglais et communication <br>
+                    - R2.04 - Maths pour l'OT <br>
+                    - R2.05 - Physique: Domaine Fréquentiel et filtrage <br>
+                    - R2.06 - Puissances et schéma de liaison à la terre <br>
+                    - R2.07 - Programmation Orientée Objet <br>
+                    - R2.13 - IA, Apprentissage supervisé <br>
+                    - R2.22 - Robotique: Vision industrielle
+                </p>
+            </div>
+        </section>
+
+        <section id="SAÉ_EU3" class="content-section">
+            <button class="back-btn" data-back="UE3">← Retour à l'UE</button>
+            <h2>🎯 SAÉ UE-03</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Détails des SAÉ...</div>
+                <p>
+                    SAÉ dans l'UE : <br>
+                    <br>
+                    - SAE1.4 - Maintenance et gestion du code <br>
+                    <br>
+                    - SAE 2.3 - Mise en place de mesures de réduction des risques en lien avec la dangerosité du procédé de fabrication <br>
+                    - SAE 2.4 - Amélioration de la production <br>
+                    - SAE2.5 - Portfolio
+                </p>
+            </div>
+        </section>
+
+        <section id="PROJETS_UE3" class="content-section">
+            <button class="back-btn" data-back="UE3">← Retour à l'UE</button>
+            <h2>💡 Projets UE-03</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Portfolio des projets...</div>
+                <p>
+                    - Club Robotique <br>
+                    - Serveur NAS / Domotique <br>
+                    - LEDs Connectées <br>
+                    - Capteur de Température, Humidité et CO2 <br>
+                    - Réparation d'une Nintendo Switch et Nintendo 3DS
+                </p>
+            </div>
+        </section>
+
+        <section id="COURS_EU4" class="content-section">
+            <button class="back-btn" data-back="UE4">← Retour à l'UE</button>
+            <h2>📚 Cours UE-04</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Contenu des cours...</div>
+                <p>
+                    Cours dans l'UE : <br>
+                    <br>
+                    - R1.01 - Anglais et Communication <br>
+                    - R1.03 - Maths pour l'IT <br>
+                    - R1.05 - Physique Appliquée <br>
+                    - R1.07 - Programmation, Algorithmique <br>
+                    - R1.11 - Cybersécurité, Hygiène Informatique <br>
+                    - R1.15 - Métrologie <br>
+                    <br>
+                    - R2.01 - Anglais et communication <br>
+                    - R2.04 - Maths pour l'OT <br>
+                    - R2.05 - Physique: Domaine Fréquentiel et filtrage <br>
+                    - R2.06 - Puissances et schéma de liaison à la terre <br>
+                    - R2.07 - Programmation Orientée Objet <br>
+                    - R2.21 - Approche pratique de la robotique industrielle <br>
+                    - R2.22 - Robotique: Vision industrielle
+                </p>
+            </div>
+        </section>
+
+        <section id="SAÉ_EU4" class="content-section">
+            <button class="back-btn" data-back="UE4">← Retour à l'UE</button>
+            <h2>🎯 SAÉ UE-04</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Détails des SAÉ...</div>
+                <p>
+                    SAÉ dans l'UE : <br>
+                    <br>
+                    - SAE1.1 - Sécurisation physique d'une cellule robotique et cybersécurité <br>
+                    <br>
+                    - SAE 2.3 - Mise en place de mesures de réduction des risques en lien avec la dangerosité du procédé de fabrication <br>
+                    - SAE 2.4 - Amélioration de la production <br>
+                    - SAE2.5 - Portfolio
+                </p>
+            </div>
+        </section>
+
+        <section id="PROJETS_UE4" class="content-section">
+            <button class="back-btn" data-back="UE4">← Retour à l'UE</button>
+            <h2>💡 Projets UE-04</h2>
+            <div class="content-body">
+                <div class="placeholder-box">Portfolio des projets...</div>
+                <p>
+                    - Club Robotique <br>
+                    - Serveur NAS / Domotique <br>
+                    - LEDs Connectées <br>
+                    - Capteur de Température, Humidité et CO2 <br>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Mes Projets Personnels</h2>
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-img">Image du Projet 1</div>
+                <div class="project-info">
+                    <h3>Club Robotique</h3>
+                    <p>Description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 2</div>
+                <div class="project-info">
+                    <h3>Serveur NAS / Domotique</h3>
+                    <p>Description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 3</div>
+                <div class="project-info">
+                    <h3>LEDs Connectées</h3>
+                    <p>description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 4</div>
+                <div class="project-info">
+                    <h3>Capteur de Température, Humidité et CO2</h3>
+                    <p>description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 5</div>
+                <div class="project-info">
+                    <h3>Robot BB-8</h3>
+                    <p>description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 6</div>
+                <div class="project-info">
+                    <h3>Adaptateur Jack vers Bluetooth</h3>
+                    <p>description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 7</div>
+                <div class="project-info">
+                    <h3>Simulation de Système d'Évolution Génétique</h3>
+                    <p>description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-img">Image du Projet 8</div>
+                <div class="project-info">
+                    <h3>Réparation d'une Nintendo Switch et Nintendo 3DS</h3>
+                    <p>description</p>
+                    <div class="tags">
+                        <span class="tag">tag</span>
+                        <span class="tag">tag</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div class="page-content">
+
+    <section id="contact">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="contact-container">
+            <p>N'hésitez pas à me contacter !</p>
+            <br>
+            <a href="mailto:yanis.darty5@gmail.com" class="btn">Envoyer un email</a>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/yanis-michel-darty-14aa912b0/">LinkedIn</a>
+                <a href="https://github.com/Grappoon-05">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026, DARTY Yanis</p>
+    </footer>
+
+    </div><!-- /.page-content -->
+
+    <script src="script.js"></script>
+</body>
+</html>
