@@ -53,4 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         });
     });
+
+    // Pour les boutons accordéons (Cours / SAÉ / Projets de chaque UE)
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const panel = btn.nextElementSibling;
+            const isOpen = panel.classList.contains('w3-show');
+
+            panel.classList.toggle('w3-show', !isOpen);
+            btn.classList.toggle('w3-active', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        });
+    });
 });
