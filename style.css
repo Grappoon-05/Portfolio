@@ -1,16 +1,14 @@
-/* Variables de couleurs (Thème Clair, Épuré, Moderne) */
 :root {
     --bg-color: #0e0218;
-    --primary-color: #c44dff;   /* Violet néon — tiré du violet dominant */
-    --secondary-color: #ff4daa; /* Rose magenta — tiré du rose chaud */
-    --text-color: #f0e8ff;      /* Blanc lavande — lisible sur fond sombre */
-    --text-muted: #b89ecf;      /* Violet pâle doux */
-    --card-bg: rgba(30, 5, 50, 0.55);   /* Violet très foncé semi-transparent */
+    --primary-color: #c44dff;
+    --secondary-color: #ff4daa;
+    --text-color: #f0e8ff;
+    --text-muted: #b89ecf;
+    --card-bg: rgba(30, 5, 50, 0.55);
     --card-border: rgba(196, 77, 255, 0.25);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Réinitialisation de base */
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +30,31 @@ body {
     flex-direction: column;
 }
 
-/* En-tête */
+.formation-logo {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 130px;
+    height: auto;
+    z-index: 50;
+    transition: transform 0.3s ease;
+}
+
+.formation-logo:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .formation-logo {
+        width: 100px;
+        position: relative;
+        display: block;
+        margin: 20px auto 0 auto;
+        top: 0;
+        left: 0;
+    }
+}
+
 .main-header {
     text-align: center;
     padding: 3rem 0 1rem 0;
@@ -68,7 +90,6 @@ body {
     font-weight: 400;
 }
 
-/* Conteneur des boutons (Menu Principal) */
 .categories-container {
     display: flex;
     flex-wrap: wrap;
@@ -79,9 +100,9 @@ body {
     padding: 2rem;
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .sub-nav { padding: 0; gap: 1rem; margin-bottom: 2rem; }
 
-/* Style des boutons de catégorie */
 .category-btn {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
@@ -101,6 +122,7 @@ body {
     font-family: inherit;
     box-shadow: var(--shadow);
 }
+
 .sub-nav .category-btn { width: 200px; height: 160px; }
 
 .category-btn .btn-icon {
@@ -127,23 +149,21 @@ body {
     box-shadow: 0 15px 35px rgba(108, 92, 231, 0.15);
     border-color: rgba(108, 92, 231, 0.3);
 }
+
 .category-btn:hover .btn-icon {
     transform: scale(1.1) translateY(-5px);
 }
 
-/* ANIMATION : Disparition douce au lieu d'un gros zoom */
 .categories-container.zoomed-out {
     transform: scale(0.95);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Conteneurs principaux de la page (hors lecture UE) */
 .page-content {
     transition: opacity 0.4s ease;
 }
 
-/* Mode "lecture" : masque tout le reste de la page quand une UE est ouverte */
 body.reading-mode {
     overflow: hidden;
 }
@@ -151,7 +171,6 @@ body.reading-mode {
 body.reading-mode .page-content {
     opacity: 0;
     pointer-events: none;
-    /* Sort complètement du flux pour ne plus occuper d'espace ni être scrollable */
     position: absolute;
     height: 0;
     overflow: hidden;
@@ -161,7 +180,6 @@ body.reading-mode .bg-shapes {
     opacity: 0.5;
 }
 
-/* Sections de contenu */
 .content-container {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -169,6 +187,8 @@ body.reading-mode .bg-shapes {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100 !important; 
+    position: relative;
 }
 
 .content-section {
@@ -184,26 +204,26 @@ body.reading-mode .bg-shapes {
     border-radius: 30px;
     padding: 3rem clamp(1.5rem, 5vw, 4rem);
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
+    margin: 875px auto 60px auto !important; 
 }
 
-/* Scrollbar discrète et cohérente avec le thème */
 .content-section::-webkit-scrollbar {
     width: 8px;
 }
+
 .content-section::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
     border-radius: 10px;
 }
+
 .content-section::-webkit-scrollbar-track {
     background: transparent;
 }
 
-/* Classe active ajoutée par le JavaScript */
 .content-section.active {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -236,6 +256,7 @@ body.reading-mode .bg-shapes {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     transition: all 0.3s;
 }
+
 .back-btn:hover {
     color: var(--primary-color);
     box-shadow: 0 6px 15px rgba(108, 92, 231, 0.15);
@@ -251,7 +272,6 @@ body.reading-mode .bg-shapes {
     font-style: italic;
 }
 
-/* --- ACCORDÉONS (Cours / SAÉ / Projets de chaque UE) --- */
 .accordion-list {
     display: flex;
     flex-direction: column;
@@ -274,7 +294,6 @@ body.reading-mode .bg-shapes {
     border-color: rgba(108, 92, 231, 0.3);
 }
 
-/* Sépare visuellement les blocs S1/S2 d'une même liste */
 .accordion-block-title {
     font-size: 0.85rem;
     font-weight: 700;
@@ -283,6 +302,7 @@ body.reading-mode .bg-shapes {
     color: var(--secondary-color);
     margin: 1.5rem 0 0.5rem;
 }
+
 .accordion-block-title:first-child {
     margin-top: 0;
 }
@@ -298,9 +318,9 @@ body.reading-mode .bg-shapes {
     text-align: left;
     padding: 1rem 1.4rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
+    display: flex !important;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     transition: background 0.3s ease;
 }
@@ -354,7 +374,6 @@ body.reading-mode .bg-shapes {
     font-size: 0.98rem;
 }
 
-/* Emplacements média (image / vidéo / documents) à l'intérieur d'un accordéon */
 .media-placeholder {
     background: rgba(255, 255, 255, 0.5);
     border: 1.5px dashed var(--card-border);
@@ -408,7 +427,6 @@ body.reading-mode .bg-shapes {
     transform: translateY(-2px);
 }
 
-/* --- SECTIONS --- */
 section {
     padding: 1rem 10%;
     position: relative;
@@ -437,7 +455,6 @@ section {
     border-radius: 2px;
 }
 
- /* --- ABOUT --- */
 .about-container {
     display: flex;
     flex-wrap: wrap;
@@ -513,7 +530,6 @@ section {
     line-height: 1.6;
 }
 
-/* --- EDUCATION (Timeline) --- */
 .timeline {
     list-style: none;
     border-left: 3px solid var(--primary-color);
@@ -569,7 +585,6 @@ section {
     line-height: 1.5;
 }
 
-/* --- CONTACT --- */
 .contact-container {
     text-align: center;
     max-width: 600px;
@@ -640,7 +655,6 @@ section {
     box-shadow: 0 8px 18px rgba(108, 92, 231, 0.25);
 }
 
-/* --- FOOTER --- */
 footer {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     color: #fff;
@@ -650,7 +664,6 @@ footer {
     z-index: 1;
 }
 
-/* --- PROJECTS --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -663,19 +676,19 @@ footer {
     overflow: hidden;
     box-shadow: 0 4px 15px var(--shadow);
     transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
 }
 
-.project-img {
-    height: 200px;
-    background: linear-gradient(135deg, #ddd 0%, #aaa 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
+.project-card[data-target]:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    transform: translateY(-5px);
 }
 
 .project-info {
@@ -751,19 +764,12 @@ footer {
 }
 
 p {
-text-indent: 3em;
-font-family: "Times New Roman";
+    text-indent: 3em;
+    font-family: "Times New Roman";
 }
 
 p2 {
-font-family: "Times New Roman";
-}
-
-/* --- AMÉLIORATIONS : ACCORDÉONS & LEDS --- */
-.accordion-btn {
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
+    font-family: "Times New Roman";
 }
 
 .accordion-left {
@@ -771,50 +777,21 @@ font-family: "Times New Roman";
     align-items: center;
 }
 
-/* Boule LED d'évaluation */
 .led-indicator {
     width: 16px;
     height: 16px;
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 10px currentColor; /* Crée une aura/lueur lumineuse */
+    box-shadow: 0 0 10px currentColor;
     margin-left: 15px;
     flex-shrink: 0;
 }
 
-/* Couleurs de maîtrise pour les LEDs */
-.led-green { background-color: #00b894; color: #00b894; }     /* Acquis */
-.led-yellow { background-color: #fdcb6e; color: #fdcb6e; }    /* En acquisition (positif) */
-.led-orange { background-color: #e17055; color: #e17055; }    /* En acquisition (négatif) */
-.led-red { background-color: #d63031; color: #d63031; }       /* Non acquis */
+.led-green { background-color: #00b894; color: #00b894; }
+.led-yellow { background-color: #fdcb6e; color: #fdcb6e; }
+.led-orange { background-color: #e17055; color: #e17055; }
+.led-red { background-color: #d63031; color: #d63031; }
 
-/* --- AMÉLIORATIONS : PROJETS CLIQUABLES --- */
-.project-card[data-target] {
-    cursor: pointer;
-}
-.project-card[data-target]:hover {
-    border-color: var(--secondary-color);
-    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
-}
-
-/* Rend les cartes de projet interactives */
-.project-card[data-target] {
-    cursor: pointer;
-}
-
-.project-card[data-target]:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
-    transform: translateY(-5px);
-}
-
-/* --- CORRECTION DE LA SUPERPOSITION (Z-INDEX) --- */
-.content-container {
-    /* Assure que les UE et Projets passent par-dessus le footer et contact */
-    z-index: 100 !important; 
-}
-
-/* Cache proprement le reste du site quand une section est ouverte en plein écran */
 body.reading-mode #about,
 body.reading-mode #projects,
 body.reading-mode #contact,
@@ -824,24 +801,10 @@ body.reading-mode footer {
     transition: opacity 0.4s ease;
 }
 
-.content-container {
-    /* Assure que les UE et Projets passent par-dessus le footer et contact */
-    z-index: 100 !important; 
-    position: relative; /* Nécessaire pour que le z-index fonctionne bien */
-}
-
-/* Décolle les fenêtres d'UE et de Projets du haut de l'écran */
-.content-section {
-    margin: 875px auto 60px auto !important; 
-}
-
-/* ==================================================== */
-/* 1. IMAGES DES PETITES CARTES DE PROJETS (ACCUEIL)    */
-/* ==================================================== */
 .project-img {
     height: 200px;
     width: 100%;
-    overflow: hidden !important; /* LA règle absolue : aucun débordement possible ! */
+    overflow: hidden !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -850,27 +813,22 @@ body.reading-mode footer {
 .project-img img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Zoom juste assez pour remplir le cadre sans déformer */
-    object-position: center !important; /* Centre l'image dans le rectangle */
+    object-fit: cover !important;
+    object-position: center !important;
     display: block !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* ==================================================== */
-/* 2. GRANDES IMAGES (DANS LES EXPLICATIONS DES PROJETS)*/
-/* ==================================================== */
 .content-section img {
-    max-width: 100% !important;  /* L'image ne sera JAMAIS plus large que sa boîte */
+    max-width: 100% !important;
     width: auto !important;
-    height: auto !important;     /* Garde les vraies proportions de l'image */
-    max-height: 60vh !important; /* L'image ne prendra jamais plus de 60% de la hauteur de ton écran */
-    
+    height: auto !important;
+    max-height: 60vh !important;
     display: block !important;
-    margin: 2rem auto !important; /* Centre parfaitement l'image au milieu de la page */
-    
-    box-sizing: border-box !important; /* Force le respect des bordures */
-    object-fit: contain !important; /* S'assure de l'afficher en entier, sans la couper */
-    border-radius: 10px !important; /* Petits bords arrondis esthétiques */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important; /* Petite ombre pour détacher l'image du fond */
+    margin: 2rem auto !important;
+    box-sizing: border-box !important;
+    object-fit: contain !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
 }
