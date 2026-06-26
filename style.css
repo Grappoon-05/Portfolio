@@ -34,7 +34,7 @@ body {
     position: absolute;
     top: 25px;
     left: 25px;
-    width: 130px;
+    width: 90px;
     height: auto;
     z-index: 50;
     transition: transform 0.3s ease;
@@ -46,7 +46,7 @@ body {
 
 @media (max-width: 768px) {
     .formation-logo {
-        width: 100px;
+        width: 70px;
         position: relative;
         display: block;
         margin: 20px auto 0 auto;
