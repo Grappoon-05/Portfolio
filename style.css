@@ -758,3 +758,79 @@ font-family: "Times New Roman";
 p2 {
 font-family: "Times New Roman";
 }
+
+/* --- AMÉLIORATIONS : ACCORDÉONS & LEDS --- */
+.accordion-btn {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Boule LED d'évaluation */
+.led-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px currentColor; /* Crée une aura/lueur lumineuse */
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+/* Couleurs de maîtrise pour les LEDs */
+.led-green { background-color: #00b894; color: #00b894; }     /* Acquis */
+.led-yellow { background-color: #fdcb6e; color: #fdcb6e; }    /* En acquisition (positif) */
+.led-orange { background-color: #e17055; color: #e17055; }    /* En acquisition (négatif) */
+.led-red { background-color: #d63031; color: #d63031; }       /* Non acquis */
+
+/* --- AMÉLIORATIONS : PROJETS CLIQUABLES --- */
+.project-card[data-target] {
+    cursor: pointer;
+}
+.project-card[data-target]:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+/* Rend les cartes de projet interactives */
+.project-card[data-target] {
+    cursor: pointer;
+}
+
+.project-card[data-target]:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* --- CORRECTION DE LA SUPERPOSITION (Z-INDEX) --- */
+.content-container {
+    /* Assure que les UE et Projets passent par-dessus le footer et contact */
+    z-index: 100 !important; 
+}
+
+/* Cache proprement le reste du site quand une section est ouverte en plein écran */
+body.reading-mode #about,
+body.reading-mode #projects,
+body.reading-mode #contact,
+body.reading-mode footer {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.content-container {
+    /* Assure que les UE et Projets passent par-dessus le footer et contact */
+    z-index: 100 !important; 
+    position: relative; /* Nécessaire pour que le z-index fonctionne bien */
+}
+
+/* Décolle les fenêtres d'UE et de Projets du haut de l'écran */
+.content-section {
+    margin: 875px auto 60px auto !important; 
+}

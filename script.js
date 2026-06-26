@@ -5,68 +5,122 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentSections = document.querySelectorAll('.content-section');
     const mainHeader = document.querySelector('.main-header');
 
-    // Pour chaque bouton de catégorie
+    // Fonction globale pour refermer les accordéons
+    function closeAllAccordions() {
+        document.querySelectorAll('.accordion-content.w3-show').forEach(panel => {
+            panel.classList.remove('w3-show');
+            const btn = panel.previousElementSibling;
+            if (btn) btn.classList.remove('w3-active');
+        });
+    }
+
+    // 1. GESTION DU MENU PRINCIPAL (UE)
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
 
-            // Vérifie si l'on est dans le menu principal ou dans une sous-section
+            if (!targetSection) return;
+
+            closeAllAccordions();
+
             if (btn.closest('#main-nav')) {
                 mainNav.classList.add('zoomed-out');
                 mainHeader.classList.add('hidden');
-                // Active le mode lecture : masque le reste de la page (À propos, Contact, footer...)
-                document.body.classList.add('reading-mode');
+                document.body.classList.add('reading-mode'); // Active l'effacement du fond
             } else {
-                // Cache la section parente actuelle si on clique depuis un sous-menu
                 btn.closest('.content-section').classList.remove('active');
             }
 
-            // Affiche la nouvelle section après un petit délai
             setTimeout(() => {
                 targetSection.classList.add('active');
-                // Replace le scroll en haut de la section pour une lecture propre
-                targetSection.scrollTop = 0;
+                // REMONTE LA PAGE TOUT EN HAUT FLUIDEMENT
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
             }, 300);
         });
     });
 
-    // Pour chaque bouton de retour
+    // 2. GESTION DES PROJETS
+    const projectCards = document.querySelectorAll('.project-card[data-target]');
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const targetId = card.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                closeAllAccordions();
+                
+                // Masque l'UE actuellement ouverte SI le projet est dans une UE
+                const currentUE = card.closest('.content-section');
+                if (currentUE) {
+                    currentUE.classList.remove('active');
+                } else {
+                    // SI on clique sur le projet depuis l'accueil directement !
+                    mainNav.classList.add('zoomed-out');
+                    mainHeader.classList.add('hidden');
+                    document.body.classList.add('reading-mode'); // Efface tout le reste !
+                }
+
+                setTimeout(() => {
+                    targetSection.classList.add('active');
+                    // REMONTE LA PAGE TOUT EN HAUT FLUIDEMENT POUR VOIR LE PROJET
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 300);
+            }
+        });
+    });
+
+    // 3. GESTION DES BOUTONS DE RETOUR
     backBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const currentSection = btn.closest('.content-section');
             const targetBackId = btn.getAttribute('data-back');
 
-            // Cache la section courante
             currentSection.classList.remove('active');
 
-            // Réaffiche la cible demandée (menu principal ou menu précédent)
             setTimeout(() => {
                 if (targetBackId === 'main-nav') {
                     mainNav.classList.remove('zoomed-out');
                     mainHeader.classList.remove('hidden');
-                    // Quitte le mode lecture : réaffiche le reste de la page
-                    document.body.classList.remove('reading-mode');
-                    // Scroll jusqu'au menu des UE pour atterrir directement dessus
+                    document.body.classList.remove('reading-mode'); // Fait réapparaître le site
                     setTimeout(() => {
                         mainNav.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }, 100);
                 } else {
-                    document.getElementById(targetBackId).classList.add('active');
+                    // Retour à l'UE
+                    const backSection = document.getElementById(targetBackId);
+                    if (backSection) {
+                        backSection.classList.add('active');
+                        // Remonte en haut de l'UE
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 }
             }, 300);
         });
     });
 
-    // Pour les boutons accordéons (Cours / SAÉ / Projets de chaque UE)
+    // 4. GESTION DES ACCORDÉONS
     document.querySelectorAll('.accordion-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const panel = btn.nextElementSibling;
+            if (!panel) return;
+
             const isOpen = panel.classList.contains('w3-show');
+            const parentSection = btn.closest('.content-section');
+
+            if (parentSection) {
+                parentSection.querySelectorAll('.w3-show').forEach(openPanel => {
+                    if (openPanel !== panel && openPanel.classList.contains('accordion-content')) {
+                        openPanel.classList.remove('w3-show');
+                        if (openPanel.previousElementSibling) {
+                            openPanel.previousElementSibling.classList.remove('w3-active');
+                        }
+                    }
+                });
+            }
 
             panel.classList.toggle('w3-show', !isOpen);
             btn.classList.toggle('w3-active', !isOpen);
-            btn.setAttribute('aria-expanded', String(!isOpen));
         });
     });
 });
