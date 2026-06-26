@@ -834,3 +834,43 @@ body.reading-mode footer {
 .content-section {
     margin: 875px auto 60px auto !important; 
 }
+
+/* ==================================================== */
+/* 1. IMAGES DES PETITES CARTES DE PROJETS (ACCUEIL)    */
+/* ==================================================== */
+.project-img {
+    height: 200px;
+    width: 100%;
+    overflow: hidden !important; /* LA règle absolue : aucun débordement possible ! */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Zoom juste assez pour remplir le cadre sans déformer */
+    object-position: center !important; /* Centre l'image dans le rectangle */
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ==================================================== */
+/* 2. GRANDES IMAGES (DANS LES EXPLICATIONS DES PROJETS)*/
+/* ==================================================== */
+.content-section img {
+    max-width: 100% !important;  /* L'image ne sera JAMAIS plus large que sa boîte */
+    width: auto !important;
+    height: auto !important;     /* Garde les vraies proportions de l'image */
+    max-height: 60vh !important; /* L'image ne prendra jamais plus de 60% de la hauteur de ton écran */
+    
+    display: block !important;
+    margin: 2rem auto !important; /* Centre parfaitement l'image au milieu de la page */
+    
+    box-sizing: border-box !important; /* Force le respect des bordures */
+    object-fit: contain !important; /* S'assure de l'afficher en entier, sans la couper */
+    border-radius: 10px !important; /* Petits bords arrondis esthétiques */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important; /* Petite ombre pour détacher l'image du fond */
+}
